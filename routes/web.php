@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('mahasiswa.menu');
-});
+// Route::get('/', function () {
+//     return view('mahasiswa.menu');
+// });
 
-Route::get('/tambahData', [mahasiswaController::class, 'create']);
+Route::get('/menu', [mahasiswaController::class, 'index'])->name('baca-data');
+Route::get('/tambahData', [mahasiswaController::class, 'create'])->name('tambah-data');
+Route::post('/simpanData', [mahasiswaController::class, 'store'])->name('simpan-data');
 
 

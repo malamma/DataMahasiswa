@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('mainContent')
-    <a class="btn btn-primary" href="/tambahData">Tambah Data</a>
+    <a class="btn btn-primary" href="{{route('tambah-data')}}">Tambah Data</a>
     <table class="table">
         <thead>
             <tr>

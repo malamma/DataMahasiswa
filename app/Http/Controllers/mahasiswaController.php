@@ -17,7 +17,7 @@ class mahasiswaController extends Controller
     {
         $dataMhs = mahasiswaModel::all();
         // dd($dataMhs);
-        return view('mahasiswa.menu',compact('dataMhs'));
+        return view('mahasiswa.menu', compact('dataMhs'));
     }
 
     /**
@@ -38,7 +38,14 @@ class mahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        mahasiswaModel::create([
+            'nim'=> $request->nimMhs,
+            'nama'=> $request->namaMhs,
+            'jenisKelamin'=> $request->jkMhs,
+            'prodi'=> $request->prodiMhs,
+
+        ]);
+        return redirect('menu');
     }
 
     /**
