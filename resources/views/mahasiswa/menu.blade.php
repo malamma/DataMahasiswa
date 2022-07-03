@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('mainContent')
-    <a class="btn btn-primary" href="{{route('tambah-data')}}">Tambah Data</a>
+    <a class="btn btn-primary" href="{{ route('tambah-data') }}">Tambah Data</a>
     <table class="table">
         <thead>
             <tr>
@@ -20,8 +20,8 @@
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->jenisKelamin }}</td>
                     <td>{{ $item->prodi }}</td>
-                    <td><a class="btn btn-primary" href="/tambahData">Edit Data</a>
-                        <a class="btn btn-primary" href="/tambahData">Hapus Data</a>
+                    <td><a class="btn btn-primary" href="{{ url('ubah-Data', $item->id) }}">Edit Data</a>
+                        <a class="btn btn-primary" href="{{ url('deleteData', $item->id) }}">Hapus Data</a>
                     </td>
                 </tr>
             @endforeach

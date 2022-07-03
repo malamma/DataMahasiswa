@@ -67,7 +67,9 @@ class mahasiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mhs=mahasiswaModel::findorfail($id);
+        return view('mahasiswa.editData', compact('mhs'));
+        
     }
 
     /**
@@ -79,7 +81,19 @@ class mahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $mhs =mahasiswaModel::findorfail($id);
+        // $mhs->update($request->all());
+        // // $mhs->update($request->all());
+        // // dd($mhs);
+
+
+        $mhs= mahasiswaModel::where('id', $id)->update([
+            'nim'=> $request->nimMhs,
+            'nama'=> $request->namaMhs,
+            'jenisKelamin'=> $request->jkMhs,
+            'prodi'=> $request->prodiMhs,
+        ]);
+        return redirect('menu');
     }
 
     /**
@@ -90,6 +104,8 @@ class mahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mhs=mahasiswaModel::findorfail($id);
+        $mhs->delete();
+        return back();
     }
 }
